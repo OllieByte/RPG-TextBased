@@ -1,0 +1,41 @@
+#Display character information
+    character_manager(player_stats, player_position, player_inventory,player_visited_locations)
+
+    new_item1 = "potion"
+    new_item2 = "Iron Axe"
+
+    #Check and add potion item
+    check_inventory(new_item1, player_inventory)
+
+    add_item_to_inventory(new_item1, player_inventory)
+
+    check_inventory(new_item1, player_inventory)
+
+    #Add Iron Axe
+    add_item_to_inventory(new_item2, player_inventory)
+
+    #Display character information after inventory changes.
+    character_manager(player_stats, player_position, player_inventory,player_visited_locations)
+
+    #Player movement
+    #player_position = player_movement(player_position, 1, 0, 1, 1)
+    #character_manager(player_stats, player_position, player_inventory,player_visited_locations)
+
+    player_position = player_movement(player_position, "north")
+    player_position = player_movement(player_position, "east")
+    player_position = player_movement(player_position, "west")
+
+    player_position = player_movement(player_position, "up")
+
+    character_manager(player_stats, player_position, player_inventory,player_visited_locations)
+
+    #Player visited locations
+    explore_location(player_visited_locations, player_stats, "Forest")
+    new_location1 = "Cave"
+    new_location2 = "Ruins"
+    explore_location(player_visited_locations, player_stats, new_location1)
+    explore_location(player_visited_locations, player_stats, new_location1)
+    explore_location(player_visited_locations, player_stats, new_location2)
+
+
+    character_manager(player_stats, player_position, player_inventory,player_visited_locations)
