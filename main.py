@@ -60,7 +60,7 @@ def player_movement(pos: tuple[int, int]):
                         '4.West\n'
                         '5.Exit Movement:\n'
                         'Enter your choice: ')
-    choice = input(direction_prompt)
+    choice = input(direction_prompt).strip()
 
     while choice != "5":
         if choice == "1": #north
@@ -80,7 +80,7 @@ def player_movement(pos: tuple[int, int]):
         else:
             print("Invalid choice. Try again.")
 
-        choice = input(direction_prompt)
+        choice = input(direction_prompt).strip()
 
     new_position = (x,y)
     return new_position
@@ -100,9 +100,9 @@ def explore_location(visited: set[str], stats: dict, new_loc: str):
 def character_manager(stats: dict, position: tuple, inventory: list[str], locations: set[str]):
 
     print("\n========== RPG CHARACTER MANAGER ==========")
-    display_player_stats(stats, position)
+    display_player_stats(stats)
     display_player_inventory(inventory)
-    display_player_locations(locations)
+    display_player_locations(locations,position)
     print("===========================================\n")
 
 
@@ -119,7 +119,7 @@ def player_menu():
 if __name__ == '__main__':
     while True:
         player_menu()
-        choice = input("What would you like to do? ")
+        choice = input("What would you like to do? ").strip()
 
         if choice == "1":
             display_player_stats(player_stats)
