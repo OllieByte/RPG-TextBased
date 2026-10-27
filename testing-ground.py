@@ -53,3 +53,6 @@ def display_location(world: dict, position: tuple[int, int]):
 
 current_loc_test = (1,1)
 display_location(world, current_loc_test)
+
+
+print("testing commit")
