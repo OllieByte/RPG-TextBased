@@ -1,5 +1,6 @@
 #Nested Dictionary.
-world = {
+#Established locations and positions
+world_locations = {
 (0,0): {
 "name":"Oakwood",
 "type": "village",
@@ -17,29 +18,71 @@ world = {
 }
 }
 
+#Established locations for random: Cities, Forests and Caves with danger rating.
+locations_random = {
+    'city':{
+        'Ebonwharf': {
+            'danger': 3
+        },
+        'Bronzekeep':{
+            'danger': 1,
+        },
+        'Glimmerpoint':{
+            'danger': 1,
+        },
+        'Madwall':{
+            'danger': 6,
+        },
+    },
+    'forest':{
+        'Mully Wood': {
+            'danger': 2,
+        },
+        'Quiet Woods': {
+            'danger': 6
+        },
+        'Ecksard Woodland': {
+            'danger': 3,
+        }
+    },
+    'cave':{
+        'The Red Caverns': {
+            'danger': 2,
+        },
+        'The Calmest Hollow': {
+            'danger': 1,
+        },
+        'Dolshire Abyss': {
+            'danger': 5,
+        }
+    }
+}
+
+
+
 #Display Oakwood
-print(world[(0,0)]['name'])
+print(world_locations[(0, 0)]['name'])
 
 
 #Print Dragons Peak name and danger level
-print(f"At location 2,3 is {world[(2,3)]['name']}")
-print(f"Danger scale from 1 to 10 is: {world[(2,3)]['danger']}")
+print(f"At location 2,3 is {world_locations[(2, 3)]['name']}")
+print(f"Danger scale from 1 to 10 is: {world_locations[(2, 3)]['danger']}")
 
 
 #Increase danger for Ironhold
-world[(4,2)]['danger'] = 2
-print(f"Danger has increased for {world[(4,2)]['name']} to {world[(4,2)]['danger']}.")
+world_locations[(4, 2)]['danger'] = 2
+print(f"Danger has increased for {world_locations[(4, 2)]['name']} to {world_locations[(4, 2)]['danger']}.")
 
 
-world[(1,1)] = {
+world_locations[(1, 1)] = {
 'name': 'Ashenwoods',
 'type': 'forest',
 'danger': 3}
 
-print(f"New location {world[(1,1)]}")
+print(f"New location {world_locations[(1, 1)]}")
 
 # coordinate and location name
-for key, value in world.items():
+for key, value in world_locations.items():
     print(key, value['name'])
     
 
@@ -52,7 +95,20 @@ def display_location(world: dict, position: tuple[int, int]):
 
 
 current_loc_test = (1,1)
-display_location(world, current_loc_test)
+display_location(world_locations, current_loc_test)
+
+print("\n\n")
+
+def add_location(world_dict: dict, pos: tuple[int, int],loc: dict):
+    if world_dict.get(pos):
+        print("Location already exists")
+    else:
+        print("Location does not exist")
+        world_dict[(pos)] = loc['city']['Ebonwharf']
 
 
-print("testing commit")
+
+current_loc_test = (5,5)
+add_location(world_locations, current_loc_test, locations_random)
+
+print(world_locations)
