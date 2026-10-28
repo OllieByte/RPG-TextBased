@@ -20,43 +20,50 @@ world_locations = {
 
 #Established locations for random: Cities, Forests and Caves with danger rating.
 locations_random = {
-    'city':{
         'Ebonwharf': {
-            'danger': 3
+            'type': 'city',
+            'danger': 3,
         },
         'Bronzekeep':{
+            'type': 'city',
             'danger': 1,
         },
         'Glimmerpoint':{
+            'type': 'city',
             'danger': 1,
         },
         'Madwall':{
+            'type': 'city',
             'danger': 6,
         },
-    },
-    'forest':{
+
         'Mully Wood': {
+            'type': 'forest',
             'danger': 2,
         },
         'Quiet Woods': {
+            'type': 'forest',
             'danger': 6
         },
         'Ecksard Woodland': {
+            'type': 'forest',
             'danger': 3,
-        }
-    },
-    'cave':{
+        },
+
         'The Red Caverns': {
+            'type': 'cave',
             'danger': 2,
         },
         'The Calmest Hollow': {
+            'type': 'cave',
             'danger': 1,
         },
         'Dolshire Abyss': {
+            'type': 'cave',
             'danger': 5,
         }
-    }
 }
+
 
 
 
@@ -104,7 +111,7 @@ def add_location(world_dict: dict, pos: tuple[int, int],loc: dict):
         print("Location already exists")
     else:
         print("Location does not exist")
-        world_dict[(pos)] = loc['city']['Ebonwharf']
+        world_dict[(pos)] =
 
 
 
